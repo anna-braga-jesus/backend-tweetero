@@ -1,6 +1,5 @@
 package com.tweetero.projetao.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tweetero.projetao.dto.UserDTO;
-import com.tweetero.projetao.service.UserService;
+import com.tweetero.projetao.dto.TweetDTO;
+import com.tweetero.projetao.service.TweetService;
 
 import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/tweetero")
-public class UserController {
+public class TweetController {
 
     @Autowired
-    private UserService service;
+    private TweetService service;
 
-    @PostMapping("/signup")
+    @PostMapping("/tweet")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public String signUp(@RequestBody @Valid UserDTO req) {                
-        service.signUp(req); 
+    public String createATweet(@RequestBody @Valid TweetDTO req) {                
+        service.createATweet(req); 
         return "Ok";
     }
-
+    
 }

@@ -1,7 +1,7 @@
 package com.tweetero.projetao.models;
 
 import com.tweetero.projetao.annotations.JsonElement;
-import com.tweetero.projetao.dto.UserDTO;
+import com.tweetero.projetao.dto.TweetDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,13 +14,13 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @NoArgsConstructor
-public class UserModel {
-    
-    public UserModel(UserDTO req){
-        this.username = req.username();
-        this.avatar = req.avatar();
-    }
+public class TweetModel {
 
+    public TweetModel(TweetDTO req){
+        this.username = req.username();
+        this.tweet = req.tweet();
+    }
+  
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -30,6 +30,7 @@ public class UserModel {
      private String username;
 
      @Column(length = 300 ,nullable = false)
-     private String avatar;
-
+     private String tweet;
+    
 }
+
