@@ -2,19 +2,17 @@ package com.tweetero.projetao.dto;
 
 import jakarta.validation.constraints.NotNull;
 
-
-public record UserDTO(
+public record TweetDTO(
     @NotNull String username,
-    @NotNull String avatar
-){
+    @NotNull String tweet
+) {
 
-    public String getUsername() {
+    public String username() {
         return username;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String tweet() {
+        return tweet;
     }
-
+    
 }
-
