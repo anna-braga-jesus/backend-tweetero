@@ -1,5 +1,7 @@
 package com.tweetero.projetao.models;
 
+import org.hibernate.validator.constraints.URL;
+
 import com.tweetero.projetao.annotations.JsonElement;
 import com.tweetero.projetao.dto.TweetDTO;
 
@@ -18,6 +20,7 @@ public class TweetModel {
 
     public TweetModel(TweetDTO req){
         this.username = req.username();
+        this.avatar = req.avatar();
         this.tweet = req.tweet();
     }
   
@@ -29,8 +32,12 @@ public class TweetModel {
      @JsonElement
      private String username;
 
+     @Column
+     @URL
+     private String avatar;
+    
      @Column(length = 300 ,nullable = false)
      private String tweet;
-    
+
 }
 
